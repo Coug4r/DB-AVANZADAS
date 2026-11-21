@@ -8,11 +8,11 @@ function App() {
   const [vista, setVista] = useState<'registro' | 'lista'>('registro')
   const [productoEditar, setProductoEditar] = useState<Producto | null>(null);
   
-  const handleEditar = (producto: Producto) => {
+  const handleEditar = (producto: Producto | null) => {
     setProductoEditar(producto);
     setVista('registro');
   };
-  
+
   return (
     <div className="app-container">
       <nav className="navbar">
@@ -22,7 +22,7 @@ function App() {
         <div className="navbar-links">
           <button
             className={`nav-btn ${vista === 'registro' ? 'active' : ''}`}
-            onClick={() => setVista('registro')}
+            onClick={() => handleEditar(null)}
           >
             Registrar Producto
           </button>

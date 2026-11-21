@@ -1,7 +1,7 @@
 import { db } from '../firebase';
-import { collection, addDoc, getDocs } from 'firebase/firestore';
+import { collection, addDoc, getDocs, doc, updateDoc } from 'firebase/firestore';
 
-export interface Producto{
+export interface Producto {
     id: string,
     nombre: string,
     precio: number,
@@ -28,10 +28,19 @@ export const guardarProducto = async (
 export const obtenerProductos = async (): Promise<Producto[]> => {
     const querySnapshot = await getDocs(collection(db, "productos"))
 
-    const productos = querySnapshot.docs.map((docs)=> ({
+    const productos = querySnapshot.docs.map((docs) => ({
         id: docs.id,
         ...docs.data()
     })) as Producto[];
 
     return productos
+}
+
+export const actualizarProducto = async (id: string, nombre: string, precio: number, stock: number) => {
+    const productoRef = doc(db, "productos", id)
+    await updateDoc(productoRef, {
+        nombre,
+        precio,
+        stock
+    });
 }

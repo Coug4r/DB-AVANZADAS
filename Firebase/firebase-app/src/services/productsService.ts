@@ -6,7 +6,11 @@ import {
     onSnapshot,
     doc,
     updateDoc,
-    deleteDoc
+    deleteDoc,
+    query,
+    where,
+    orderBy,
+    getDocs
 } from 'firebase/firestore';
 
 export interface Producto {
@@ -72,4 +76,24 @@ export const eliminarProducto = async (id: string) => {
     const productoRef = doc(db, "productos", id);
 
     await deleteDoc(productoRef);
+}
+
+export const obtenerProductosDisponibles = async (): Promise<Producto[]> =>{
+    const consulta = query(
+        collection(db, "productos"),
+        where("categoria", "==", "Tecnologia"),
+        where("stock", ">", 0),
+        where("precio", ">=", 100),
+        where("precio", "<=", 500),
+        orderBy("precio", "asc")
+    );
+
+    const querySnapshot = await getDocs(consulta);
+
+    const productos = querySnapshot.docs.map((documento)=> ({
+        id: documento.id,
+        ...documento.data()
+    })) as Producto[];
+
+    return productos;
 }

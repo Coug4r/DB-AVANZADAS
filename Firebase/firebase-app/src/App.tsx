@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { ProductsForm } from './components/ProductsForm'
 import { ProductoLista } from './components/ProductsList'
-import { type Producto } from './services/productsService'
+import { obtenerProductosDisponibles, type Producto } from './services/productsService'
 
 function App() {
   const [vista, setVista] = useState<'registro' | 'lista'>('registro')
@@ -31,6 +31,15 @@ function App() {
             onClick={() => setVista('lista')}
           >
             Lista de Productos
+          </button>
+          <button 
+            className={`nav-btn ${vista === 'lista' ? 'active' : ''}`}
+            onClick={async ()=>{
+              const productoConsulta = await obtenerProductosDisponibles();
+              console.log(productoConsulta)
+            }}
+          >
+            BUSCAR
           </button>
         </div>
       </nav>

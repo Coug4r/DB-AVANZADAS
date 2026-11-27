@@ -1,5 +1,13 @@
+
 import { db } from '../firebase';
-import { collection, addDoc, getDocs, doc, updateDoc, deleteDoc} from 'firebase/firestore';
+import {
+    collection,
+    addDoc,
+    onSnapshot,
+    doc,
+    updateDoc,
+    deleteDoc
+} from 'firebase/firestore';
 
 export interface Producto {
     id: string,
@@ -25,19 +33,34 @@ export const guardarProducto = async (
     }
 }
 
-export const obtenerProductos = async (): Promise<Producto[]> => {
-    const querySnapshot = await getDocs(collection(db, "productos"))
+// Escuchar productos en tiempo real
+export const escucharProductos = (
+    callback: (productos: Producto[]) => void
+) => {
+    const productosRef = collection(db, "productos");
 
-    const productos = querySnapshot.docs.map((docs) => ({
-        id: docs.id,
-        ...docs.data()
-    })) as Producto[];
+    const unsubscribe = onSnapshot(productosRef, (querySnapshot) => {
+        const productos = querySnapshot.docs.map((documento) => ({
+            id: documento.id,
+            ...documento.data()
+        })) as Producto[];
 
-    return productos
+        callback(productos);
+    }, (error) => {
+        console.log("Error al escuchar productos: ", error);
+    });
+
+    return unsubscribe;
 }
 
-export const actualizarProducto = async (id: string, nombre: string, precio: number, stock: number) => {
-    const productoRef = doc(db, "productos", id)
+export const actualizarProducto = async (
+    id: string,
+    nombre: string,
+    precio: number,
+    stock: number
+) => {
+    const productoRef = doc(db, "productos", id);
+
     await updateDoc(productoRef, {
         nombre,
         precio,
@@ -45,7 +68,7 @@ export const actualizarProducto = async (id: string, nombre: string, precio: num
     });
 }
 
-export const eliminarProducto = async(id: string)=>{
+export const eliminarProducto = async (id: string) => {
     const productoRef = doc(db, "productos", id);
 
     await deleteDoc(productoRef);

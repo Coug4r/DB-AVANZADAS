@@ -1,0 +1,72 @@
+       RESULTADOS DE CONSULTAS
+CONSULTA 1: Vehículos disponibles ordenados por precio
+  ┌─────────┬────────────────────────┬───────┬──────────────┬────────────┬─────────────┬────────┬──────┐
+  │ (index) │ id                     │ stock │ marca        │ modelo     │ tipo        │ precio │ anio │
+  ├─────────┼────────────────────────┼───────┼──────────────┼────────────┼─────────────┼────────┼──────┤
+  │ 0       │ 'pbAjYS2EAIu2zNBvN6h4' │ 6     │ 'Kia'        │ 'Rio'      │ 'Hatchback' │ 17000  │ 2022 │
+  │ 1       │ '8ozN6545rrB9pXvrNmJB' │ 14    │ 'Suzuki'     │ 'Swift'    │ 'Hatchback' │ 18000  │ 2023 │
+  │ 2       │ 'NB5wASx3xOMJml1GTu2T' │ 20    │ 'Mazda'      │ 'Mazda 2'  │ 'Hatchback' │ 19500  │ 2026 │
+  │ 3       │ '3eH4iVmDlEz6wQbhNc0W' │ 9     │ 'Toyota'     │ 'Yaris'    │ 'Hatchback' │ 20000  │ 2025 │
+  │ 4       │ 'uLqU9QnsqZRlWthAWYvr' │ 5     │ 'Hyundai'    │ 'Elantra'  │ 'Sedan'     │ 22000  │ 2023 │
+  │ 5       │ 'OOmGW9d2qoQBCK8W9N06' │ 8     │ 'Toyota'     │ 'Corolla'  │ 'Sedan'     │ 24500  │ 2025 │
+  │ 6       │ 'u7pqfJIGrHPpDsSr54cZ' │ 11    │ 'Chevrolet'  │ 'Tracker'  │ 'SUV'       │ 26000  │ 2022 │
+  │ 7       │ 'Awc3v86xCVOR4g2RPmAt' │ 10    │ 'Mazda'      │ 'Mazda 3'  │ 'Sedan'     │ 26500  │ 2026 │
+  │ 8       │ 'bOPZ8OJBsEjhCjX7DKyY' │ 12    │ 'Honda'      │ 'Civic'    │ 'Sedan'     │ 28000  │ 2024 │
+  │ 9       │ 'r7PwvQzzLo7eb2eLBECw' │ 7     │ 'Kia'        │ 'K5'       │ 'Sedan'     │ 29000  │ 2025 │
+  │ 10      │ 'k0D8ltSlm1GskfTHSjWx' │ 10    │ 'Volkswagen' │ 'Golf'     │ 'Hatchback' │ 30000  │ 2024 │
+  │ 11      │ 'Ce3NOBt5mb09qXUWtltF' │ 40    │ 'Ford'       │ 'F-150'    │ 'Pick Up'   │ 32000  │ 2026 │
+  │ 12      │ 'DMdBbGn4qZ5i6OpXP6me' │ 15    │ 'Kia'        │ 'Sportage' │ 'SUV'       │ 33000  │ 2023 │
+  │ 13      │ '9AtGfqPnW0Kfix8tld70' │ 6     │ 'Hyundai'    │ 'Tucson'   │ 'SUV'       │ 35000  │ 2024 │
+  │ 14      │ 'b5jYdt37SSSq3nISZEbH' │ 9     │ 'Toyota'     │ 'RAV4'     │ 'SUV'       │ 38000  │ 2025 │
+  │ 15      │ '4P31BBobTXqzJcEDDSEk' │ 12    │ 'Chevrolet'  │ 'D-Max'    │ 'Pickup'    │ 39000  │ 2023 │
+  │ 16      │ 'rPb05UdPhXCBSMW0Ayjs' │ 4     │ 'Mazda'      │ 'CX-5'     │ 'SUV'       │ 42000  │ 2026 │
+  │ 17      │ 'M9gNOCE7x4C8nQR2VPtf' │ 7     │ 'Mitsubishi' │ 'L200'     │ 'Pickup'    │ 43000  │ 2026 │
+  │ 18      │ 'CITX6H1Kf4U0Lu4CPn70' │ 8     │ 'Toyota'     │ 'Hilux'    │ 'Pickup'    │ 45000  │ 2025 │
+  │ 19      │ '6pPF6tFuHKBe8mYvBxHX' │ 5     │ 'Ford'       │ 'Ranger'   │ 'Pickup'    │ 48000  │ 2024 │
+  │ 20      │ 'YhdJNY4f3vYcG3prUh3B' │ 2     │ 'Volkswagen' │ 'Amarok'   │ 'Pickup'    │ 52000  │ 2025 │
+  │ 21      │ '3UNPt7e7h8L2ZuZhSZ6s' │ 3     │ 'Ford'       │ 'Explorer' │ 'SUV'       │ 55000  │ 2025 │
+  └─────────┴────────────────────────┴───────┴──────────────┴────────────┴─────────────┴────────┴──────┘
+  Total de vehículos encontrados: 22
+CONSULTA 2: SUV disponibles ordenados por precio
+  ┌─────────┬────────────────────────┬─────────────┬───────┬───────┬────────────┬──────┬────────┐
+  │ (index) │ id                     │ marca       │ tipo  │ stock │ modelo     │ anio │ precio │
+  ├─────────┼────────────────────────┼─────────────┼───────┼───────┼────────────┼──────┼────────┤
+  │ 0       │ 'u7pqfJIGrHPpDsSr54cZ' │ 'Chevrolet' │ 'SUV' │ 11    │ 'Tracker'  │ 2022 │ 26000  │
+  │ 1       │ 'DMdBbGn4qZ5i6OpXP6me' │ 'Kia'       │ 'SUV' │ 15    │ 'Sportage' │ 2023 │ 33000  │
+  │ 2       │ '9AtGfqPnW0Kfix8tld70' │ 'Hyundai'   │ 'SUV' │ 6     │ 'Tucson'   │ 2024 │ 35000  │
+  │ 3       │ 'b5jYdt37SSSq3nISZEbH' │ 'Toyota'    │ 'SUV' │ 9     │ 'RAV4'     │ 2025 │ 38000  │
+  │ 4       │ 'rPb05UdPhXCBSMW0Ayjs' │ 'Mazda'     │ 'SUV' │ 4     │ 'CX-5'     │ 2026 │ 42000  │
+  │ 5       │ '3UNPt7e7h8L2ZuZhSZ6s' │ 'Ford'      │ 'SUV' │ 3     │ 'Explorer' │ 2025 │ 55000  │
+  └─────────┴────────────────────────┴─────────────┴───────┴───────┴────────────┴──────┴────────┘
+  Total de vehículos encontrados: 6
+CONSULTA 3: Vehículos entre $20,000 y $40,000
+  ┌─────────┬────────────────────────┬─────────────┬────────────┬──────┬──────────────┬────────┬───────┐
+  │ (index) │ id                     │ tipo        │ modelo     │ anio │ marca        │ precio │ stock │
+  ├─────────┼────────────────────────┼─────────────┼────────────┼──────┼──────────────┼────────┼───────┤
+  │ 0       │ '3eH4iVmDlEz6wQbhNc0W' │ 'Hatchback' │ 'Yaris'    │ 2025 │ 'Toyota'     │ 20000  │ 9     │
+  │ 1       │ 'uLqU9QnsqZRlWthAWYvr' │ 'Sedan'     │ 'Elantra'  │ 2023 │ 'Hyundai'    │ 22000  │ 5     │
+  │ 2       │ 'OOmGW9d2qoQBCK8W9N06' │ 'Sedan'     │ 'Corolla'  │ 2025 │ 'Toyota'     │ 24500  │ 8     │
+  │ 3       │ 'u7pqfJIGrHPpDsSr54cZ' │ 'SUV'       │ 'Tracker'  │ 2022 │ 'Chevrolet'  │ 26000  │ 11    │
+  │ 4       │ 'Awc3v86xCVOR4g2RPmAt' │ 'Sedan'     │ 'Mazda 3'  │ 2026 │ 'Mazda'      │ 26500  │ 10    │
+  │ 5       │ 'bOPZ8OJBsEjhCjX7DKyY' │ 'Sedan'     │ 'Civic'    │ 2024 │ 'Honda'      │ 28000  │ 12    │
+  │ 6       │ 'r7PwvQzzLo7eb2eLBECw' │ 'Sedan'     │ 'K5'       │ 2025 │ 'Kia'        │ 29000  │ 7     │
+  │ 7       │ 'k0D8ltSlm1GskfTHSjWx' │ 'Hatchback' │ 'Golf'     │ 2024 │ 'Volkswagen' │ 30000  │ 10    │
+  │ 8       │ 'Ce3NOBt5mb09qXUWtltF' │ 'Pick Up'   │ 'F-150'    │ 2026 │ 'Ford'       │ 32000  │ 40    │
+  │ 9       │ 'DMdBbGn4qZ5i6OpXP6me' │ 'SUV'       │ 'Sportage' │ 2023 │ 'Kia'        │ 33000  │ 15    │
+  │ 10      │ '9AtGfqPnW0Kfix8tld70' │ 'SUV'       │ 'Tucson'   │ 2024 │ 'Hyundai'    │ 35000  │ 6     │
+  │ 11      │ 'b5jYdt37SSSq3nISZEbH' │ 'SUV'       │ 'RAV4'     │ 2025 │ 'Toyota'     │ 38000  │ 9     │
+  │ 12      │ '4P31BBobTXqzJcEDDSEk' │ 'Pickup'    │ 'D-Max'    │ 2023 │ 'Chevrolet'  │ 39000  │ 12    │
+  └─────────┴────────────────────────┴─────────────┴────────────┴──────┴──────────────┴────────┴───────┘
+  Total de vehículos encontrados: 13
+CONSULTA 4: Sedan desde 2023 ordenados por año
+  ┌─────────┬────────────────────────┬─────────┬────────┬──────┬───────────┬───────────┬───────┐
+  │ (index) │ id                     │ tipo    │ precio │ anio │ marca     │ modelo    │ stock │
+  ├─────────┼────────────────────────┼─────────┼────────┼──────┼───────────┼───────────┼───────┤
+  │ 0       │ 'Awc3v86xCVOR4g2RPmAt' │ 'Sedan' │ 26500  │ 2026 │ 'Mazda'   │ 'Mazda 3' │ 10    │
+  │ 1       │ 'OOmGW9d2qoQBCK8W9N06' │ 'Sedan' │ 24500  │ 2025 │ 'Toyota'  │ 'Corolla' │ 8     │
+  │ 2       │ 'r7PwvQzzLo7eb2eLBECw' │ 'Sedan' │ 29000  │ 2025 │ 'Kia'     │ 'K5'      │ 7     │
+  │ 3       │ 'bOPZ8OJBsEjhCjX7DKyY' │ 'Sedan' │ 28000  │ 2024 │ 'Honda'   │ 'Civic'   │ 12    │
+  │ 4       │ 'uLqU9QnsqZRlWthAWYvr' │ 'Sedan' │ 22000  │ 2023 │ 'Hyundai' │ 'Elantra' │ 5     │
+  └─────────┴────────────────────────┴─────────┴────────┴──────┴───────────┴───────────┴───────┘
+  Total de vehículos encontrados: 5
+       CONSULTAS FINALIZADAS

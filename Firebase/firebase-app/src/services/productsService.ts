@@ -10,7 +10,11 @@ import {
     query,
     where,
     orderBy,
-    getDocs
+    getDocs,
+    limit,
+    QueryDocumentSnapshot,
+    type DocumentData,
+    startAfter,
 } from 'firebase/firestore';
 
 export interface Producto {
@@ -78,22 +82,44 @@ export const eliminarProducto = async (id: string) => {
     await deleteDoc(productoRef);
 }
 
-export const obtenerProductosDisponibles = async (): Promise<Producto[]> =>{
+export const obtenerProductosDisponibles = async (): Promise<Producto[]> => {
     const consulta = query(
         collection(db, "productos"),
-        where("categoria", "==", "Tecnologia"),
+        //where("categoria", "==", "Tecnologia"),
         where("stock", ">", 0),
-        where("precio", ">=", 100),
+        where("precio", ">=", 300),
         where("precio", "<=", 500),
+        limit(1),
         orderBy("precio", "asc")
     );
 
     const querySnapshot = await getDocs(consulta);
 
-    const productos = querySnapshot.docs.map((documento)=> ({
+    const productos = querySnapshot.docs.map((documento) => ({
         id: documento.id,
         ...documento.data()
     })) as Producto[];
 
     return productos;
+}
+
+export const obtenerProductoPaginados = async (ultimoDocumento?: QueryDocumentSnapshot<DocumentData>) => {
+    let consulta;
+    if (ultimoDocumento) {
+        consulta = query(collection(db, "productos"), orderBy("precio", "asc"), startAfter(ultimoDocumento),
+            limit(5))
+    } else {
+        consulta = query(collection(db, "productos"), orderBy("precio", "asc"), limit(5))
+    }
+
+    const snapshot = await getDocs(consulta);
+
+    const productos = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+    })) as Producto[];
+
+    const nuevoUltimoDocumento = snapshot.docs[snapshot.docs.length - 1];
+
+    return { productos, ultimoDocumento: nuevoUltimoDocumento };
 }

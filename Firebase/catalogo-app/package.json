@@ -6,13 +6,24 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generar-datos": "tsx scripts/crearDatos.ts"
   },
   "devDependencies": {
+    "@types/node": "^26.6.11",
+    "@types/react": "^19.3.3",
+    "@types/react-dom": "^19.3.0",
     "@vitejs/devtools": "^0.8.3",
     "@vitejs/devtools-rolldown": "^0.8.3",
     "@vitejs/devtools-vite": "^0.8.3",
+    "@vitejs/plugin-react": "^6.3.0",
+    "tsx": "^4.23.15",
     "typescript": "~7.0.2",
     "vite": "^8.4.0"
+  },
+  "dependencies": {
+    "firebase": "^13.4.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
   }
 }

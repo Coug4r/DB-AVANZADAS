@@ -1,0 +1,29 @@
+Patrones de acceso
+N.º	Patrón (consulta frecuente)	Consulta en Firestore	Índice compuesto
+P1	Ver solo películas o solo series, en orden alfabético	where("tipo","==",t), orderBy("titulo")	tipo asc, titulo asc
+P2	Ver títulos de un género, del mejor al peor calificado	where("genero","==",g), orderBy("calificacion","desc")	genero asc, calificacion desc
+P3	Buscar estrenos dentro de un rango de años	where("anio",">=",a), where("anio","<=",b), orderBy("anio","desc")	No requiere
+P4	Ver solo títulos disponibles, del mejor al peor calificado	where("disponible","==",true), orderBy("calificacion","desc")	disponible asc, calificacion desc
+
+Todas las consultas se paginan con limit(10) y startAfter(cursor).
+
+Flujo: requisitos de negocio → patrones de acceso → modelo NoSQL → consultas en Firestore.
+
+4. Modelo NoSQL
+
+Una sola colección, titulos, con ID autogenerado por Firestore (addDoc).
+
+titulos (colección)
+└── <ID autogenerado> (documento)
+    ├── titulo: "Breaking Bad"      (string)
+    ├── tipo: "serie"               (string)
+    ├── genero: "Drama"             (string)
+    ├── anio: 2008                  (number)
+    ├── calificacion: 9.5           (number)
+    ├── disponible: true            (boolean)
+    └── detalles:                   (map)
+        ├── creador: "Vince Gilligan"
+        ├── pais: "Estados Unidos"
+        ├── idioma: "Inglés"
+        ├── duracionMin: 49
+        └── temporadas: 5           (solo series)

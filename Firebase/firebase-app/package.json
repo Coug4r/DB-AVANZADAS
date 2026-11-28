@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "generar-vehiculos": "tsx scripts/generarVehiculos.ts",
-    "consultas-vehiculos": "tsx scripts/consultasVehiculos.ts"
+    "consultas-vehiculos": "tsx scripts/consultasVehiculos.ts",
+    "generar-productos" : "tsx scripts/generarProductos.ts"
   },
   "dependencies": {
     "firebase": "^13.4.0",
